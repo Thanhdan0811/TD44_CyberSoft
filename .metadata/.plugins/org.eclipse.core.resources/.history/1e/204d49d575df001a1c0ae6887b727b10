@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Bt_LT_3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		int n;
+		float x, y, mangSoThuc[], soAmDauTien;
+		
+		System.out.print("Nhập số phần tử: ");
+		n = Integer.parseInt(scan.nextLine());
+		
+		mangSoThuc = new float[n];
+		
+		taoSoNgauNhien(mangSoThuc, -100, 100);
+		xuatMang(mangSoThuc);
+		soAmDauTien = laySoAmDauTien(mangSoThuc);
+	}
+
+	private static float laySoAmDauTien(float[] mangSoThuc) {
+		// TODO Auto-generated method stub
+		for(int i = 0; i < mangSoThuc.length ; i++) {
+			if(mangSoThuc[i] < 0)
+				return mangSoThuc[i];
+		}
+		return 0;
+	}
+
+	private static void xuatMang(float[] mangSoThuc) {
+		// TODO Auto-generated method stub
+		System.out.print("Mảng đã nhập: ");
+		for(int i = 0; i < mangSoThuc.length ; i++) {
+			System.out.print(String.format("%.3f", mangSoThuc[i]) + " ");
+		}
+	}
+
+	private static void taoSoNgauNhien(float[] mangSoThuc, float a, float b) {
+		// TODO Auto-generated method stub
+		for(int i = 0; i < mangSoThuc.length; i++) {
+			mangSoThuc[i] = a + (float)(Math.random()*((b-a)+1));
+		}
+	}
+
+}

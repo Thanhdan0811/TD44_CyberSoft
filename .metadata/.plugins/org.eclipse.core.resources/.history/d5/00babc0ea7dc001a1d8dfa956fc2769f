@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Demo_ARRAY {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * Khai báo 1 mảng
+		 */
+		int mangInt[];
+		float mangFloat[];
+		Scanner mangScan[];
+		
+		/*
+		 * Cấp phát vùng nhớ
+		 */
+		mangInt = new int[5];
+		mangFloat=  new float[5];
+		mangScan = new Scanner[50];
+		
+		String mangString[] = new String[20];
+		/*
+		 * Khởi tạo giá trị
+		 */
+		int mangInt_daKhoiTao[] = {1,2,34,5}; // chỉ thực hiện được khi vừa khởi tạo
+		
+		mangInt[0] = 5;
+		mangInt[4] = 4;
+		/*
+		 * Truy xuất giá trị của mảng
+		 */
+		for(int i = 0; i < mangInt.length ; i++) {
+			System.out.print(mangInt + " ");
+		}
+		/*
+		 * Gán giá trị
+		 */
+		int mangSoChan[] = new int[20];
+		for(int i = 2, j = 0; j < mangSoChan.length; j++, i+=2 ) {
+			mangSoChan[j] = i;
+		}
+		for(int i = 0; i < mangSoChan.length ; i++) {
+			System.out.print(mangSoChan[i] + " ");
+		}
+	}
+
+}

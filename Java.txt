@@ -1,0 +1,9 @@
+Buổi 3 : đặt tên hàm theo kiểu camel, và đặt tên bắt đầu bằng động từ
+Buổi 4 : String.format("%12s", ""); s là chuỗi , f là kiểu float 
+	While không biết số lần lặp 
+	Kỹ thuật cờ : đặt thêm 1 biến để kiểm tra các điều kiện.
+	Tạo hàm tách hẳn chức năng 
+	Coding Style : 
+		+ Clean Code : ngay hàng thẳng lỗi; cách đặt tên biến, hàm, lớp....; hàm nên có từ 3 tham số trở xuống. Tách hàm là tách chức năng.
+		+ Code Flow  : Luồng chạy hay thứ tự của code;
+		+ abstract level :  

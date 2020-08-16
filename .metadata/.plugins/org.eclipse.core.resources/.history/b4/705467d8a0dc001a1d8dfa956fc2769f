@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class BT_Tien_tietKiem {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		float soTienGui, soTienMongMuon, laiSuat;
+		float soNam;
+		System.out.print("Số tiền gửi : ");
+		soTienGui = Float.parseFloat(scan.nextLine());
+		System.out.print("Số tiền mong muốn : ");
+		soTienMongMuon = Float.parseFloat(scan.nextLine());
+		System.out.print("lãi suất : ");
+		laiSuat = Float.parseFloat(scan.nextLine());
+		
+	}
+
+}

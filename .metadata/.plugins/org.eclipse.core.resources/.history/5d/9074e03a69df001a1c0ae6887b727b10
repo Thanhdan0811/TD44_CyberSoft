@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class BT_LT_1 {
+
+	public static void main(String[] args) {
+		// Đầu vào
+		Scanner scan = new Scanner(System.in);
+		int mangSoNguyen[], soPhanTuMang, tongSoChan = 0, luaChon;
+		boolean flag = false;
+		// Nhập Menu
+		do {
+			System.out.println("Menu : ");
+			System.out.println("\t1. Nhập và xuất mảng ");
+			System.out.println("\t2. Tính tổng các số chẵn ");
+			System.out.println("\t3. Đếm số âm ");
+			System.out.println("\t4. Tổng các số âm ");
+			System.out.print("\tLựa chọn :  ");
+			luaChon = Integer.parseInt(scan.nextLine());
+			if(luaChon != 1) {
+				flag = true;
+				System.out.println("Bạn cần nhập mảng trước");
+			} else if(luaChon == 1) flag = false;
+		} while(flag);
+		
+		switch(luaChon) {
+			case 1: 
+				mangSoNguyen = nhapXuatMang(scan);
+				System.out.println("Sau trước khi đổi : " + mangSoNguyen[2]);
+				mangSoNguyen[2] = 15;
+				System.out.println("Sau khi tahy đổi : " + mangSoNguyen[2]);
+				break;
+		}
+		
+		// Tính tổng các số chẵn
+//		System.out.print("Tổng số chẵn : ");
+//		for(int i = 0; i < mangSoNguyen.length; i++) {
+//			tongSoChan += mangSoNguyen[i] % 2 == 0 ? mangSoNguyen[i] : 0;  
+//		}
+	}
+
+	private static int[] nhapXuatMang(Scanner scan) {
+		int mangSoNguyen[], soPhanTuMang;
+		System.out.print("Nhập vào số phần tử ");
+		soPhanTuMang = Integer.parseInt(scan.nextLine());
+		
+		mangSoNguyen = new int[soPhanTuMang];
+		
+		for(int i = 0; i < mangSoNguyen.length; i++) {
+			System.out.print("Phần tử thứ " + (i + 1)  + " : ");
+			mangSoNguyen[i] = Integer.parseInt(scan.nextLine());
+		}
+		// Đầu ra
+		System.out.print("Mảng đã nhập : ");
+		for(int i = 0; i < mangSoNguyen.length; i++) {
+			System.out.print(mangSoNguyen[i] + "  ");
+		}
+		return mangSoNguyen;
+	}
+
+}

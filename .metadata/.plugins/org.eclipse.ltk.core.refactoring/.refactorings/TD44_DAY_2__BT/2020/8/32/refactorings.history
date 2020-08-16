@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;BaiTap_2_Cach_doc_3_chu_so&apos; to &apos;BaiTap_3_Cach_doc_3_chu_so&apos;&#x0D;&#x0A;- Original project: &apos;TD44_DAY_2__BT&apos;&#x0D;&#x0A;- Original element: &apos;BaiTap_2_Cach_doc_3_chu_so&apos;&#x0D;&#x0A;- Renamed element: &apos;BaiTap_3_Cach_doc_3_chu_so&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;BaiTap_2_Cach_doc_3_chu_so&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{BaiTap_2_Cach_doc_3_chu_so.java[BaiTap_2_Cach_doc_3_chu_so" matchStrategy="1" name="BaiTap_3_Cach_doc_3_chu_so" qualified="false" references="true" similarDeclarations="false" stamp="1596366928564" textual="false" version="1.0"/>
+</session>

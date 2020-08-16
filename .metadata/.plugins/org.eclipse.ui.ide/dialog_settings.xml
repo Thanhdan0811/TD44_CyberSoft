@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+	<section name="TaskPropertiesDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="330"/>
+		<item key="DIALOG_Y_ORIGIN" value="189"/>
+		<item key="DIALOG_WIDTH" value="723"/>
+		<item key="DIALOG_HEIGHT" value="283"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\nguye\Documents\WORK\TUDUY-44\TD44_Buoi5.zip"/>
+			<item value="C:\Users\nguye\Documents\WORK\TUDUY-44\TD44_Buoi4 (1).zip"/>
+			<item value="C:\Users\nguye\Documents\WORK\TUDUY-44\GiaiBaiTapBuoi2.zip"/>
+			<item value="C:\Users\nguye\Documents\WORK\TUDUY-44\TD44_Buoi1_BaiGiang.zip"/>
+			<item value="C:\Users\nguye\Documents\WORK\TUDUY-44\TD44_Buoi2_BaiGiang.zip"/>
+			<item value="C:\Users\nguye\Documents\WORK\TUDUY-44\TD44_Buoi3_BaiGiang.zip"/>
+			<item value="C:\Users\nguye\Documents\WORK\TUDUY-44\TD44_Buoi4_BaiGiang.zip"/>
+			<item value="C:\Users\nguye\Documents\WORK\TUDUY-44\GiaiBaiTapBuoi1.zip"/>
+		</list>
+	</section>
+</section>

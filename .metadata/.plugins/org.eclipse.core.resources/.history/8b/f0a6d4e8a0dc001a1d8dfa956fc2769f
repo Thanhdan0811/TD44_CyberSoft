@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class BT_Tien_tietKiem {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		float soTienGui, soTienMongMuon, laiSuat;
+		float soNam = 1;
+		System.out.print("Số tiền gửi : ");
+		soTienGui = Float.parseFloat(scan.nextLine());
+		System.out.print("Số tiền mong muốn : ");
+		soTienMongMuon = Float.parseFloat(scan.nextLine());
+		System.out.print("lãi suất : ");
+		laiSuat = Float.parseFloat(scan.nextLine());
+		laiSuat *= 0.01;
+		for(int i = 0; soTienGui <= soTienMongMuon; i++) {
+			soTienGui += soTienGui * laiSuat;
+			soNam++;
+		}
+		System.out.println("So năm" + soNam);
+	}
+
+}

@@ -1,0 +1,15 @@
+
+public class VD_mang {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int mang_A[], mang_B[];
+		mang_A = new int[3];
+		mang_A[0] = 4;
+		mang_A[1] = 5;
+		mang_A[2] = 6;
+		mang_B = mang_A;
+		System.out.println(mang_B);
+	}
+
+}

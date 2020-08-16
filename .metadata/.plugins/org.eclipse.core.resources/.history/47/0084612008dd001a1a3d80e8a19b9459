@@ -1,0 +1,36 @@
+
+public class VD_mang {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int mang_A[], mang_B[], mang_C[];
+		mang_A = new int[3];
+		mang_A[0] = 4;
+		mang_A[1] = 5;
+		mang_A[2] = 6;
+		mang_B = mang_A;
+		for(int i = 0; i < mang_B.length; i++)
+			System.out.println("Mảng B phần tử " + i + " : " + mang_B[i]  );
+		System.out.println("************************************************");
+		for(int i = 0; i < mang_A.length; i++)
+			System.out.println("Mảng A phần tử " + i + " : " + mang_A[i]  );
+		System.out.println("************************************************");
+		mang_C = thayDoi(mang_B);
+		System.out.println("Mang B phan tu 1 " + mang_B[1]);
+		System.out.println("Mang A phan tu 1 " + mang_A[1]);
+		for(int i = 0; i < mang_C.length; i++)
+			System.out.println("Mảng C phần tử " + i + " : " + mang_C[i]  );
+
+		System.out.println("************************************************");
+		mang_C[2] = 45;
+		for(int i = 0; i < mang_A.length; i++)
+			System.out.println("Mảng A phần tử " + i + " : " + mang_A[i]  );
+	}
+
+	private static int[] thayDoi(int[] mang_B) {
+		// TODO Auto-generated method stub
+		mang_B[1] = 100;
+		return mang_B;
+	}
+
+}

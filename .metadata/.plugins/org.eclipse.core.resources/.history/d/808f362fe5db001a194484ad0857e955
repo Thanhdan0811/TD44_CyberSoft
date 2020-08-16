@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class bttong {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//code đầu vào
+		Scanner sc = new Scanner(System.in);
+		boolean kiemTra = false;
+		int soNhap, ketQua = 0;
+		System.out.println(" Nhập vào sô bạn muốn: ");
+		soNhap = Integer.parseInt(sc.nextLine());
+		
+		
+		//code xử lí
+		do {
+			kiemTra = soNhap == 0 ?  false : true;
+				ketQua += soNhap;
+		}
+		while (kiemTra);
+
+		// code kết quả
+		System.out.println("  tổng sô bạn nhập là " + ketQua);
+		
+		
+	}
+
+}

@@ -1,0 +1,21 @@
+INDEX VERSION 1.131+C:\Users\nguye\Documents\WORK\TUDUY-44\.metadata\.plugins\org.eclipse.jdt.core
+4191766984.index
+2265797427.index
+2516511806.index
+3160902320.index
+3412113958.index
+3851688113.index
+450521994.index
+878033505.index
+2026020779.index
+1161730939.index
+570629907.index
+1624250482.index
+2481295427.index
+217562500.index
+1382673308.index
+2724596975.index
+2459117607.index
+3423436351.index
+2079362322.index
+1426337669.index

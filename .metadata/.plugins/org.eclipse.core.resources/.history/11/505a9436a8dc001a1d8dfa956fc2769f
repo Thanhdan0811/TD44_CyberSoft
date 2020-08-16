@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Bt_array {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		int soPhanTu;
+		int mangInt[];
+		System.out.print("Nhập vào số phàn tử của mảng");
+		soPhanTu = Integer.parseInt(scan.nextLine());
+		
+		mangInt = new int[soPhanTu];
+		
+		for(int i = 0; i < mangInt.length; i++) {
+			
+		}
+	}
+
+}

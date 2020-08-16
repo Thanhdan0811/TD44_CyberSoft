@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Review_BT_Mang {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// Đầu vào
+		int mangSoNguyen[], soPhanTuMang;
+		Scanner scan = new Scanner(System.in);
+		// Nhập dữ liệu
+		System.out.print("Nhập vào số phần tử ");
+		soPhanTuMang = Integer.parseInt(scan.nextLine());
+		
+		mangSoNguyen = new int[soPhanTuMang];
+		
+		for(int i = 0; i < mangSoNguyen.length; i++) {
+			System.out.print("Phần tử thứ " + (i + 1)  + " : ");
+			mangSoNguyen[i] = Integer.parseInt(scan.nextLine());
+		}
+		
+		System.out.print("Mảng đã nhập : ");
+		for(int i = 0; i < mangSoNguyen.length; i++) {
+			System.out.print(mangSoNguyen[i] + "  ");
+		}
+	}
+
+}

@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class BT_Loop_for {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * 
+		 */
+		Scanner scan = new Scanner(System.in);
+		int soLanNhap, tongSo = 0;
+		System.out.print("N số nguyên là : ");
+		soLanNhap = Integer.parseInt(scan.nextLine());
+		for(int i = 1; i <= soLanNhap ; i++) {
+			System.out.print("Nhập vào số nguyên thứ " + "i");
+			int temp = Integer.parseInt(scan.nextLine());
+			tongSo += temp % 3 == 0 ? temp : 0;  
+		}
+		System.out.println("Tổng số chia hết cho 3 là : " + tongSo);
+	}
+
+}

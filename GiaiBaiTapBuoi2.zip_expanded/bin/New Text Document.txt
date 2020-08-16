@@ -1,0 +1,274 @@
+# Case study: Sơn phòng
+## Đầu vào: 
+-	Kích thước phòng
+-	Kích thước của sổ + số lượng cửa sổ
+-	Kích thước cửa chính + số lượng cửa chính
+-	Lượng sơn tiêu hao / m2
+
+## Xử lý:
+-	Tạo biến: 
+	+	daiPhong, rongPhong, caoPhong, sTuong, sTran
+	+	daiCuaSo, rongCuaSo,  soCuaSo, sCuaSo
+	+	daiCuaChinh, rongCuaChinh,  soCuaChinh, sCuaChinh
+	+	sSonTuong, sSonTran
+	+	tieuHaoTrungBinh
+	+	luongSonTuong, luongSonTran
+
+-	Thông báo nhập vào dữ liệu của phòng
+-	Trích lấy dữ liệu phòng
+-	Tính kích thước phòng: 
+	+	sTran = dài x rộng
+	+	sTuong = (dài x cao x 2) + (rộng x cao x 2)  
+
+-	Thông báo nhập vào dữ liệu cửa chính
+-	Trích lấy dữ liệu cửa chính
+-	Tính kích thước cửa chính: 
+	+	sCuaChinh = dài x rộng x số cửa chính
+	  
+-	Thông báo nhập vào dữ liệu cửa sổ
+-	Trích lấy dữ liệu cửa sổ
+-	Tính kích thước cửa sổ: 
+	+	sCuaSo = dài x rộng x số cửa sổ
+
+-	sSonTuong = sTuong - sCuaSo - sCuaChinh
+-	sSonTran = sTran
+
+-	Nhập lượng sơn tiêu hao trung bình
+
+-	Tính số lượng sơn cần:
+	+	luongSonTuong = sSonTuong x tieuHaoTrungBinh
+	+	luongSonTran = sSonTran x tieuHaoTrungBinh
+## Đầu ra: Xuất ra màn hình lượng sơn cần để sơn tường, sơn trần
+
+
+# Bài 1: Tìm trị tuyệt đối
+## Đầu vào:
+-	Ba số thực
+## Xử lý:
+-	tạo biến: soThu_1, soThu_2, soThu_3
+-	Thông báo nhập vào 3 số thực
+-	trích lấy dữ liệu nhập gán cho biến tương ứng
+
+-	tìm trị tuyệt đối. Xét điều kiện
+	+	soThu_1 <0 => soThu_1 =-soThu_1
+## Đầu ra: In kết quả ra màn hình.
+
+# Bài 3: Đọc số có 3 chữ số
+## Đầu vào: số có 3 chữ số
+## Xử lý:
+-	Tạo biến docHangTram, docHangChuc, docHangDV, soNhap
+-	tạo biến hangDV, hangChuc, hangTram
+-	Thông báo nhập vào một số có 3 chữ số
+-	trích lấy dữ liệu nhập, gán cho soNhap
+-	tìm chữ số hàng trăm, chục, đơn vị:
+	+	hangTram = soNhap/100
+	+	hangChuc = soNhap%100/10
+	+	hangDV = soNhap%10
+-	phân tích cách đọc
+	+	đọc chữ số hàng trăm
+		+	tách lấy số hàng trăm = soNhap/100
+		+	xét điều kiện đọc chữ số hàng trăm: 
+		+	Trường hợp:
+			+	case 1,2,3,4,5,6,7,8,9: số + trăm
+	+	đọc chữ số hàng chục
+		+	Tách lấy số hàng chục = (soNhap%100)/10	
+		+	trường hợp:
+			+	case 1: đọc là mười
+			+	case 2,3,4,5,6,7,8,9: số + mươi
+			+	case 0:
+				+	nếu số hàng đơn vị ==0: không đọc
+				+	số hàng đơn vị !=0: linh
+	+	đọc chữ số hàng đơn vị 
+		+	Tách lấy số hàng đơn vị = soNhap%10
+		+	Trường hợp:
+			+	case 1:
+				+	khi số hàng chục ==0, ==1: số
+				+	khi số hàng chục >1: đọc là mốt
+
+			+	case 4:
+				+	khi số hàng chục ==1: số
+				+	khi số hàng chục >1: đọc là tư
+
+			+	case 5: 
+				+	khi số hàng chục >0, <=9: đọc là lăm
+				+	số hàng chục ==0: số
+			+	case 2, 3, , 6, 7, 8, 9: số
+			+	case 0: không đọc
+
+==> ghép docHangTram + docHangChuc + docHangDV
+		
+
+## Đầu ra: Xuất ra màn hình kết quả
+
+# Bài 4: Check tam giác
+
+## Đầu vào:
+-	3 cạnh của một tam giác
+## Xử lý:
+-	tạo biến: canhA, canhB, canhC
+-	Thông báo nhập vào kích thước các cạnh của tam giác
+-	trích lấy dữ liệu nhập, gán vào biến tương ứng
+-	check tính hợp lí của 3 cạnh
+	- |B-C|<A<B+C => đó là hình tam giác
+	### check các dạng của tam giác
+		+ tg đều: 3 cạnh bằng nhau
+		+ tg 2 cạnh bằng nhau
+			+ thỏa pytago:tg vuông cân
+			+ không thoat pytago: tg cân
+		+ tg vuông: thỏa pytago
+		+ tg thường
+	-	không phải hình tam giác
+## Đầu ra: xuất kết quả ra màn hình.
+
+# Bài 5: check ngày của tháng
+## Đầu vào:
+-	tháng, năm
+## Xử lý:
+-	tạo biến: thang, nam, denNgay
+-	thông báo nhập vào tháng, năm, gán biến tương ứng
+-	check tháng
+	-	case 1,3,5,7,8,10,12: demNgay = 31 ngày
+	-	case 4,6,9,11: demNgay = 30 ngày
+	-	case 2 có case: 
+case 1: năm nhuận
+	-	năm nhuận có 2 điều kiện
+		-	chia hết cho 100 và chia hết cho 400
+		-	chia hết cho 4 và không chia hết cho 100
+		thì t2 có 29 ngày
+		case 2: năm không nhuận =>t2 có 28 ngày	
+## Đầu ra:xuất kết quả ra màn hình
+
+# Bài 7: sinh viên trẻ nhất
+## Đầu vào:
+-	tên, năm sinh
+## Xử lý:
+-	tạo biến: sinhVien_1, sinhVien_2, sinhVien_3
+-	namSinh_1, namSinh_2, namSinh_3
+-	tuoiTre, tenTre
+
+-	thông báo nhập vào tên, tuổi, gán cho biến tương ứng
+
+-	tìm năm sinh cao nhất => trẻ nhất
+-	gán tuoiTre = namSinh_1;
+-	gán tenTre = sinhVien_1;
+	-	xét điều kiện
+	-	nếu tuoiTre < namSinh_2 => max = namSinh_2; tenTre = sinhVien_2;
+	-	
+
+	-	nếu tuoiTre < namSinh_3 => max = namSinh_3; tenTre = sinhVien_3;	
+## Đầu ra:Xuất kết quả ra màn hình
+
+# Bài 8: đếm số chẵn, lẻ
+## Đầu vào: nhập 3 số
+## Xử lý:
+-	tạo biến soNhap, demChan, demLe
+
+
+-	thông báo nhập vào số thứ 1
+-	xét điều kiện
+	-	soNhap thứ 1 %2==0 => demChan++;
+		-	else demLe++
+
+-	thông báo nhập vào số thứ 2
+-	xét điều kiện
+	-	soNhap thứ 2 %2==0 => demChan++;
+		-	else demLe++
+
+-	thông báo nhập vào số thứ 3
+-	xét điều kiện
+	-	soNhap thứ 3 %2==0 => demChan++;
+		-	else demLe++
+
+## Đầu ra: in kết quả demChan, demLe ra màn hình
+
+# Bài 9: tìm nam trẻ nhất
+## Đầu vào: tên, năm sinh, giới tính 3 người.
+## Xử lý:
+-	tạo biến:
+	+	ten
+	+	tuoi
+	+	gioiTinh
+	+	tenNamTreNhat, tuoiNamTreNhat
+
+-	thông báo nhập vào tên, tuổi, giới tính người thứ 1
+	+	nếu giới tính là nam => tenNamTreNhat = ten1, tuoiNamTreNhat = tuoi
+	
+
+-	thông báo nhập vào tên, tuổi, giới tính người thứ 2
+	+	nếu giới tính là nam => 
+		+	nếu tuoiNamTreNhat < tuoi
+		+	tenNamTreNhat = ten2, tuoiNamTreNhat = tuoi2
+
+-	thông báo nhập vào tên, tuổi, giới tính người thứ 3
+	+	nếu giới tính là nam => 
+		+	nếu tuoiNamTreNhat < tuoi
+		+	tenNamTreNhat = ten, tuoiNamTreNhat = tuoi
+## Đầu ra: Xuất ra màn hình tên nam trẻ nhất. 
+
+
+# Bài 10: Tìm sv xa trường nhất.
+## Đầu vào:
+-	tên
+-	tạo độ Oxy
+## Xử lý:
+-	Tạo biến
+	-	sinhVien_1,2,3;
+	-	toaDoTruong;
+	-	toaDoSV;
+	-	khoangCach
+	-	max
+
+-	thông báo nhập vào tên, tọa độ của sinh viên 1
+-	gán dữ liệu tương ứng cho sv1
+-	tính khoảng cách từ trường đến sv1 => khoangCach
+-	gán max = khoangCach
+-	sv xa nhất = sv1
+
+-	thông báo nhập vào tên, tọa độ của sv 2
+-	gán dữ liệu tương ứng cho sv2
+-	tính khoảng cách từ trường đến sv2 => khoangCach
+-	nếu max < khoangCach
+=> max = khoangCach && sv xa nhất = sv2
+
+-	thông báo nhập vào tên, tọa độ của sv 3
+-	gán dữ liệu tương ứng cho sv2
+-	tính khoảng cách từ trường đến sv3 => khoangCach
+-	nếu max < khoangCach
+=> max = khoangCach && sv xa nhất = sv3
+
+
+
+## Đầu ra: xuất ra màn hình sv xa nhất + max
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
