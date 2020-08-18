@@ -1,0 +1,294 @@
+import java.util.Scanner;
+
+public class BT_Day_6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		int mangSoNguyen[];
+//		mangSoNguyen = nhapMangInt(scan);
+//		xuatMang(mangSoNguyen);
+		// Các giá trị có dạng 3^k
+//		inGiaTriBaMuK(mangSoNguyen);
+		// Liệt kê các cặp giá trị gần nhau nhất
+//		inCapGiaTriGanNhauNhat(mangSoNguyen);
+		// Tạo màng số nguyên từ [-100; 100] ,liệt kê số chẵn thuộc [x,y], 
+//		lietKeSoChanTrongKhoangXY(scan);
+		// Tạo màng số nguyên từ [-1000; 1000] ,liệt kê số tất cả số lẻ
+//		lietKeSoLeTrongMang(scan);
+		// Liệt kê số nguyên có chữ số đầu là chẵn
+//		lietKeSoDauLaChan(scan);
+		// Tính tổng các số dương trong mảng 1 chiều
+//		tinhTongSoDuong(scan);
+		// Tính tổng các số có số hàng chục là 5 trong mảng
+//		tinhTongSoHangChucLa_5(scan);
+		// Tính Tổng các số lớn hơn trị tuyệt đối số tiếp theo
+//		tinhTongSoLonHonTriTuyetDoi(scan);
+		// Tính Trung bình các số nguyên tố trong mảng
+//		tinhTBSoNguyenTo(scan);
+		// Tính Trung bình các số lớn hơn x do ng dùng nhập
+//		tinhTBSoLonHonX(scan);
+		// Xóa tất cả số lớn nhất trong mảng số thực
+		xoaSoLonNhatTrongMang(scan);
+	}
+		
+
+	private static void xoaSoLonNhatTrongMang(Scanner scan) {
+		// TODO Auto-generated method stub
+		float mangNgauNhien[], soLonNhat = 0;
+		
+		mangNgauNhien = taoMangNgauNhienFloat(scan, -1000, 1000);
+		xuatMang(mangNgauNhien);
+		for(int i = 0; i < mangNgauNhien.length; i++) {
+			soLonNhat = soLonNhat 
+		}
+		
+	}
+
+
+	private static void tinhTongSoLonHonTriTuyetDoi(Scanner scan) {
+		// TODO Auto-generated method stub
+		float mangNgauNhien[], tongSo = 0;
+		mangNgauNhien = taoMangNgauNhienFloat(scan, -1000, 1000);
+		xuatMang(mangNgauNhien);
+		for(int i = 0; i < mangNgauNhien.length - 1; i++) {
+			if(mangNgauNhien[i] > Math.abs(mangNgauNhien[i+1])) {
+				System.out.println("Số lớn hơn : " + mangNgauNhien[i]);
+				tongSo += mangNgauNhien[i];
+			}
+		}
+		System.out.println("Tống các số lớn hơn trị tuyệt đối số tiếp theo : " + tongSo);
+	}
+
+
+	private static void tinhTBSoLonHonX(Scanner scan) {
+		// TODO Auto-generated method stub
+		float mangNgauNhien[], trungBinhCong = 0,  soX;
+		int soLan = 0;
+		mangNgauNhien = taoMangNgauNhienFloat(scan, -1000, 1000);
+		xuatMang(mangNgauNhien);
+		System.out.print("Nhập vào số x : ");
+		soX = Float.parseFloat(scan.nextLine());
+		for(int i = 0; i < mangNgauNhien.length; i++) {
+			if(mangNgauNhien[i] > soX) {
+				System.out.println("Số lớn hơn " + soX + " : " + mangNgauNhien[i]);
+				trungBinhCong += mangNgauNhien[i];
+				soLan++;
+			}
+		}
+		if(soLan != 0)
+//		System.out.println("Trung bình số lớn hơn " + soX + " : " + (trungBinhCong / soLan) + " so lan : " + soLan);
+		System.out.println("Trung bình số lớn hơn " + soX + " : " + (trungBinhCong / soLan));
+		else System.out.println("Trung bình số là 0 ");
+	}
+
+
+	private static void tinhTBSoNguyenTo(Scanner scan) {
+		// TODO Auto-generated method stub
+		int mangNgauNhien[], trungBinhCong = 0, soLan = 0;
+		boolean  laSoNguyenTo = false;
+		mangNgauNhien = taoMangNgauNhien(scan, -100, 100);
+		xuatMang(mangNgauNhien);
+		for(int i = 0; i < mangNgauNhien.length; i++) {
+			laSoNguyenTo = ktraSoNguyenTo(mangNgauNhien[i]);
+			if(laSoNguyenTo) {
+				System.out.println("Số nguyên tố : " + mangNgauNhien[i]);
+				trungBinhCong += mangNgauNhien[i];
+				soLan++;
+			}
+		}
+		if(soLan != 0)
+//		System.out.println("Trung bình số nguyên tố : " + (trungBinhCong / soLan) + " so lan : " + soLan);
+		System.out.println("Trung bình số nguyên tố : " + (trungBinhCong / soLan));
+		else System.out.println("Trung bình số nguyên tố là 0 ");
+	}
+
+	private static boolean ktraSoNguyenTo(int soNguyen) {
+		// TODO Auto-generated method stub
+//		boolean  laSoNguyenTo = false;
+		if(soNguyen <= 1) return false;
+		if(soNguyen == 2) return true;
+		if(soNguyen % 2 == 0) return false;
+		if(soNguyen == 3) return true;
+		if(soNguyen % 3 == 0) return false;
+		for(int i = 4; i < soNguyen; i++) {
+			if(soNguyen % i == 0) return false;
+		}
+		return true; 
+	}
+
+	private static void tinhTongSoHangChucLa_5(Scanner scan) {
+		int mangNgauNhien[], tongSo = 0;
+		mangNgauNhien = taoMangNgauNhien(scan, -100, 100);
+		xuatMang(mangNgauNhien);
+		for(int i = 0; i < mangNgauNhien.length; i++) {
+			if(mangNgauNhien[i] / 10 == 5 || mangNgauNhien[i] / 10 == -5)
+				tongSo += mangNgauNhien[i];
+		}
+		System.out.println("\nTống các số hàng chục là 5 : " + tongSo);
+	}
+
+	private static void tinhTongSoDuong(Scanner scan) {
+		int mangNgauNhien[], tongSoDuong = 0;
+		mangNgauNhien = taoMangNgauNhien(scan, -1000, 1000);
+		for(int i = 0; i  < mangNgauNhien.length; i++) {
+			if(mangNgauNhien[i] >= 0)
+				tongSoDuong += mangNgauNhien[i];
+		}
+		System.out.println("Tổng số dương : " + tongSoDuong);
+	}
+
+	private static void lietKeSoDauLaChan(Scanner scan) {
+		int mangNgauNhien[], soSoSanh;
+		byte soDauTien = 0;
+		boolean ktraSoAm = false;
+		mangNgauNhien = taoMangNgauNhien(scan, -100, 100);
+//		xuatMang(mangNgauNhien);
+		System.out.print("\nCác số đầu là chẵn trong mảng : ");
+		for(int i = 0; i < mangNgauNhien.length; i++) {
+			soSoSanh = 10;
+			if(mangNgauNhien[i] < 0) {
+				mangNgauNhien[i] = -mangNgauNhien[i];
+				ktraSoAm = true;
+			}
+			while(true) {
+				if(mangNgauNhien[i] < soSoSanh) {
+					soDauTien = (byte)(mangNgauNhien[i] / (soSoSanh / 10));
+					if(ktraSoAm) {
+						mangNgauNhien[i] = -mangNgauNhien[i];
+						ktraSoAm = false;
+					}
+					if(soDauTien % 2 == 0)	System.out.print(mangNgauNhien[i] + "  ");
+					break;
+				}
+				soSoSanh *= 10;
+			}
+		}
+	}
+
+	private static void lietKeSoLeTrongMang(Scanner scan) {
+		int mangNgauNhien[];
+		mangNgauNhien = taoMangNgauNhien(scan, -1000, 1000);
+		System.out.print("Các số lẻ trong mảng : ");
+		for(int i = 0; i < mangNgauNhien.length; i++) {
+			if(mangNgauNhien[i] % 2 != 0)
+				System.out.print(mangNgauNhien[i] + "  ");
+		}
+	}
+
+	private static void lietKeSoChanTrongKhoangXY(Scanner scan) {
+		int mangNgauNhien[], x , y;
+		mangNgauNhien = taoMangNgauNhien(scan, -100, 100);
+		System.out.print("nhập vào số x : ");
+		x = Integer.parseInt(scan.nextLine());
+		System.out.print("nhập vào số y : ");
+		y = Integer.parseInt(scan.nextLine());
+		System.out.print("Các số thuộc [" + x + ":" + y + "] : ");
+		for(int i = 0; i < mangNgauNhien.length; i++) {
+			if(mangNgauNhien[i] >= x && mangNgauNhien[i] <= y && mangNgauNhien[i] % 2 == 0)
+				System.out.print(mangNgauNhien[i] + "  ");
+		}
+	}
+
+	private static int[] taoMangNgauNhien(Scanner scan, int soDuoi, int soTren) {
+		int mangNgauNhien[];
+		System.out.print("\nNhập vào số phần tử : ");
+		mangNgauNhien = new int[Integer.parseInt(scan.nextLine())];
+		for(int i = 0; i < mangNgauNhien.length; i++) {
+			mangNgauNhien[i] = soDuoi + (int)(Math.random() * ((soTren - soDuoi) + 1));
+		}
+		return mangNgauNhien;
+	}
+	
+	private static float[] taoMangNgauNhienFloat(Scanner scan, float soDuoi, float soTren) {
+		float mangNgauNhien[];
+		System.out.print("\nNhập vào số phần tử : ");
+		mangNgauNhien = new float[Integer.parseInt(scan.nextLine())];
+		for(int i = 0; i < mangNgauNhien.length; i++) {
+			mangNgauNhien[i] = soDuoi + ((float)Math.random() * ((soTren - soDuoi) + 1));
+		}
+		return mangNgauNhien;
+	}
+
+	private static void inCapGiaTriGanNhauNhat(int[] mangSoNguyen) {
+		int soMin = triTuyetDoi(mangSoNguyen[0], mangSoNguyen[1]);
+		for(int i = 0; i < mangSoNguyen.length - 1; i++) {
+			for(int j = i + 1; j < mangSoNguyen.length; j++ ) {
+				soMin = soMin < triTuyetDoi(mangSoNguyen[i], mangSoNguyen[j]) ? soMin  : triTuyetDoi(mangSoNguyen[i], mangSoNguyen[j]);
+			}
+		}
+		System.out.println("\nSố min : " + soMin);
+		for(int i = 0; i < mangSoNguyen.length - 1; i++) {
+			for(int j = i + 1; j < mangSoNguyen.length; j++ ) {
+				if(soMin == triTuyetDoi(mangSoNguyen[i], mangSoNguyen[j])) {
+					System.out.print("\ncặp số gần nhau nhất ở vị trí [" + (i + 1) + " : " + (j + 1) +"]" + " có giá trị là : " + "[" + mangSoNguyen[i] + " : " + mangSoNguyen[j] +"]" );
+				}
+			}
+		}
+	}
+
+	private static int triTuyetDoi(int i, int j) {
+		int kq = i - j;
+		kq = kq < 0 ? -kq : kq;
+		return kq;
+	}
+
+	private static void inGiaTriBaMuK(int[] mangSoNguyen) {
+		boolean tonTaiGiaTri = false;
+		System.out.print("\ngiá trị có dạng 3^k: ");
+		for(int i = 0, soChia; i < mangSoNguyen.length ;i++) {
+			if(mangSoNguyen[i] == 1) System.out.print(mangSoNguyen[i] + " ");
+			if(mangSoNguyen[i] < 3 || mangSoNguyen[i] % 3 != 0 ) {
+				continue;
+			}
+			soChia = 1;
+			while(true) {
+				soChia *= 3;
+				if(mangSoNguyen[i] == soChia) {
+					System.out.print(mangSoNguyen[i] + " ");
+					tonTaiGiaTri = true;
+					break;
+				} else if(mangSoNguyen[i] < soChia) {
+					break;
+				}
+			}
+			
+		}
+		if(!tonTaiGiaTri) System.out.print(0);
+	}
+
+	private static void xuatMang(int[] mangSoNguyen) {
+		// TODO Auto-generated method stub
+		System.out.print("\nMảng : ");
+		for(int i = 0; i <  mangSoNguyen.length ;i++) {
+			System.out.print( mangSoNguyen[i] + " ");
+		}
+		System.out.print("\n");
+	}
+	
+	private static void xuatMang(float[] mangSoFloat) {
+		// TODO Auto-generated method stub
+		System.out.print("\nMảng : ");
+		for(int i = 0; i <  mangSoFloat.length ;i++) {
+			System.out.print( mangSoFloat[i] + " ");
+		}
+		System.out.print("\n");
+	}
+
+	private static int[] nhapMangInt(Scanner scan) {
+		// TODO Auto-generated method stub
+		int n, mangInt[];
+		
+		System.out.print("Nhập vào số phần tử mảng : ");
+		n = Integer.parseInt(scan.nextLine());
+		
+		mangInt = new int[n];
+		
+		for(int i = 0; i <  mangInt.length ;i++) {
+			System.out.print("Nhập mang[" + i + "] : ");
+			mangInt[i] = Integer.parseInt(scan.nextLine());
+		}
+		return mangInt;
+	}
+
+}
