@@ -5,38 +5,41 @@ public class BT_Day_6 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner scan = new Scanner(System.in);
-		// 1. Các giá trị có dạng 3^k
-//		inGiaTriBaMuK(scan);
-		// 2. Liệt kê các cặp giá trị gần nhau nhất
+		int mangSoNguyen[];
+//		mangSoNguyen = nhapMangInt(scan);
+//		xuatMang(mangSoNguyen);
+		// Các giá trị có dạng 3^k
+//		inGiaTriBaMuK(mangSoNguyen);
+		// Liệt kê các cặp giá trị gần nhau nhất
 //		inCapGiaTriGanNhauNhat(mangSoNguyen);
-		// 3. Tạo màng số nguyên từ [-100; 100] ,liệt kê số chẵn thuộc [x,y], 
+		// Tạo màng số nguyên từ [-100; 100] ,liệt kê số chẵn thuộc [x,y], 
 //		lietKeSoChanTrongKhoangXY(scan);
-		// 4. Tạo màng số nguyên từ [-1000; 1000] ,liệt kê số tất cả số lẻ
+		// Tạo màng số nguyên từ [-1000; 1000] ,liệt kê số tất cả số lẻ
 //		lietKeSoLeTrongMang(scan);
-		// 5. Liệt kê số nguyên có chữ số đầu là chẵn
+		// Liệt kê số nguyên có chữ số đầu là chẵn
 //		lietKeSoDauLaChan(scan);
-		// 6. Tính tổng các số dương trong mảng 1 chiều
+		// Tính tổng các số dương trong mảng 1 chiều
 //		tinhTongSoDuong(scan);
-		// 7. Tính tổng các số có số hàng chục là 5 trong mảng
+		// Tính tổng các số có số hàng chục là 5 trong mảng
 //		tinhTongSoHangChucLa_5(scan);
-		// 8. Tính Tổng các số lớn hơn trị tuyệt đối số tiếp theo
+		// Tính Tổng các số lớn hơn trị tuyệt đối số tiếp theo
 //		tinhTongSoLonHonTriTuyetDoi(scan);
-		// 9. Tính Trung bình các số nguyên tố trong mảng
+		// Tính Trung bình các số nguyên tố trong mảng
 //		tinhTBSoNguyenTo(scan);
-		// 10. Tính Trung bình các số lớn hơn x do ng dùng nhập
+		// Tính Trung bình các số lớn hơn x do ng dùng nhập
 //		tinhTBSoLonHonX(scan);
-		// 11. Xóa tất cả số lớn nhất trong mảng số thực
+		// Xóa tất cả số lớn nhất trong mảng số thực
 //		xoaSoLonNhatTrongMang(scan);
-		// 12. Xóa tất cả số âm trong mảng;
+		// Xóa tất cả số âm trong mảng;
 //		xoaSoAmTrongMang(scan);
-		// 13. Xóa tất cả số chẵn trong mảng;
+		// Xóa tất cả số chẵn trong mảng;
 //		xoaSoChanTrongMang(scan); 
-		// 14. Xóa tất cả số chính phương trong mảng;
+		// Xóa tất cả số chính phương trong mảng;
 //		xoaSoChinhPhongTrongMang(scan);
-		// 15. dịch phải mảng k lần
+		// dịch phải mảng k lần
 //		dichPhaiMangKLan(scan);
-		// 17. Đạo ngược mảng ban đầu
-//		daoNguocMangBanDau(scan);
+		// Đạo ngược mảng ban đầu
+		daoNguocMangBanDau(scan);
 	}
 		
 
@@ -357,25 +360,22 @@ public class BT_Day_6 {
 		return kq;
 	}
 
-	private static void inGiaTriBaMuK(Scanner scan) {
-		int mangNgauNhien[];
-		mangNgauNhien = taoMangNgauNhien(scan, -100, 100);
-		xuatMang(mangNgauNhien);
+	private static void inGiaTriBaMuK(int[] mangSoNguyen) {
 		boolean tonTaiGiaTri = false;
 		System.out.print("\ngiá trị có dạng 3^k: ");
-		for(int i = 0, soChia; i < mangNgauNhien.length ;i++) {
-			if(mangNgauNhien[i] == 1) System.out.print(mangNgauNhien[i] + " ");
-			if(mangNgauNhien[i] < 3 || mangNgauNhien[i] % 3 != 0 ) {
+		for(int i = 0, soChia; i < mangSoNguyen.length ;i++) {
+			if(mangSoNguyen[i] == 1) System.out.print(mangSoNguyen[i] + " ");
+			if(mangSoNguyen[i] < 3 || mangSoNguyen[i] % 3 != 0 ) {
 				continue;
 			}
 			soChia = 1;
 			while(true) {
 				soChia *= 3;
-				if(mangNgauNhien[i] == soChia) {
-					System.out.print(mangNgauNhien[i] + " ");
+				if(mangSoNguyen[i] == soChia) {
+					System.out.print(mangSoNguyen[i] + " ");
 					tonTaiGiaTri = true;
 					break;
-				} else if(mangNgauNhien[i] < soChia) {
+				} else if(mangSoNguyen[i] < soChia) {
 					break;
 				}
 			}
