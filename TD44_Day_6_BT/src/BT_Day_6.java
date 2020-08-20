@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.Arrays;
 public class BT_Day_6 {
 
 	public static void main(String[] args) {
@@ -35,10 +35,118 @@ public class BT_Day_6 {
 //		xoaSoChinhPhongTrongMang(scan);
 		// 15. dịch phải mảng k lần
 //		dichPhaiMangKLan(scan);
+		// 16. Mảng nhập từ bàn phím, xuất phần tử xuất hiện nhiều nhât, ít nhất được tìm thấy đầu tiên
+		xuatHienNhieuItNhat(scan);
 		// 17. Đạo ngược mảng ban đầu
 //		daoNguocMangBanDau(scan);
+		// 18. Mảng nhập từ bàn phím, xuất phần tử có số lần xuất hiện như nhau, và nhiều nhất.
 	}
 		
+
+	private static void xuatHienNhieuItNhat(Scanner scan) {
+		// TODO Auto-generated method stub
+		int mangNhap[], mangClone[], mangChuaCacSoKhacNhau[];
+		int soNhieu = 0, soIt;
+		mangNhap = nhapMangInt(scan);
+		xuatMang(mangNhap);
+		mangChuaCacSoKhacNhau = mangKhacNhau(mangNhap);
+		mangClone = demSoCacSoKhacNhau(mangChuaCacSoKhacNhau,mangNhap);
+		System.out.println("Mảng chứa khác nhau : ");
+		xuatMang(mangChuaCacSoKhacNhau);
+		System.out.println("Mảng đếm các số khác nhau : ");
+		xuatMang(mangClone);
+		soNhieu = mangClone[0];
+		soIt = mangClone[0];
+		for(int i = 0; i < mangClone.length; i++) {
+//			if(soNhieu >= mangClone[i])
+				soNhieu = soNhieu >= mangClone[i] ? soNhieu : mangClone[i] ;
+				soIt = soIt <= mangClone[i] ? soIt : mangClone[i] ;
+		}
+		System.out.println(" số nhiều nhất " + soNhieu + " " + "số ít nhất : " + soIt);
+		if(soIt == soNhieu ) System.out.println("số phần tử xuất hiện nhiều nhất và ít nhất là như nhau.");
+		for(int i = 0; i < mangClone.length; i++) {
+			if(mangClone[i] ==  soNhieu) {
+				System.out.println("Phần tử xuất hiện nhiều nhất :\t" + mangChuaCacSoKhacNhau[i] + " [" + soNhieu + " lần]");
+			}
+			if(mangClone[i] == soIt) {
+				System.out.println("Phần tử xuất hiện ít nhất :\t" + mangChuaCacSoKhacNhau[i] + " [" + soIt + " lần]");
+			}
+		}
+	}
+
+
+	private static int[] demSoCacSoKhacNhau(int[] mangChuaCacSoKhacNhau, int[] mangNhap) {
+		// TODO Auto-generated method stub
+		int mangClone[], soSoKhacNhau = 0;
+		mangClone = new int[mangChuaCacSoKhacNhau.length];
+		for(int i = 0; i < mangChuaCacSoKhacNhau.length; i++) {
+			for(int j = 0; j < mangNhap.length; j++) {
+				if(mangChuaCacSoKhacNhau[i] == mangNhap[j])
+					mangClone[i]++;
+			}
+		}
+		return mangClone;
+	}
+
+
+	private static int[] mangKhacNhau(int[] mangNhap) {
+		// TODO Auto-generated method stub
+		int mangClone[], soSoKhacNhau = 0;
+		boolean trungNhau = false;
+		for(int i = 0; i < mangNhap.length; i++) {
+			trungNhau = false;
+			if(i == 0) soSoKhacNhau++;
+			if(i != 0) {
+				for(int j = i - 1; j >= 0; j--) {
+					if(mangNhap[i] == mangNhap[j]) {
+						trungNhau = true;
+						break;
+					}
+				}
+				if(!trungNhau) soSoKhacNhau++;
+			}	
+		}
+		System.out.println("Số số khác nhau : " + soSoKhacNhau);
+		mangClone = new int[soSoKhacNhau];
+		for(int i = 0, z = 0; i < mangNhap.length; i++) {
+			trungNhau = false;
+			if(i == 0) {
+				mangClone[z] = mangNhap[i];
+				z++;
+			}
+			if(i != 0) {
+				for(int j = i - 1; j >= 0; j--) {
+					if(mangNhap[i] == mangNhap[j]) {
+						trungNhau = true;
+						break;
+					}
+				}
+				if(!trungNhau) {
+					mangClone[z] = mangNhap[i];
+					z++;
+				}
+			}	
+		}
+		return mangClone;
+	}
+
+
+	private static int[] xoaPhanTuMang(int[] mangNhap, int valDelete) {
+		// TODO Auto-generated method stub
+		int soLan = 0, mangClone[];
+		for(int i = 0; i < mangNhap.length; i++ ) {
+			if(mangNhap[i] != valDelete) soLan++;
+		}
+		mangClone = new int[soLan];
+		for(int i = 0, j = 0; i < mangNhap.length; i++ ) {
+			if(mangNhap[i] != valDelete) {
+				mangClone[j] = mangNhap[i];
+				j++;
+			}
+		}
+		return mangClone;
+	}
+
 
 	private static void daoNguocMangBanDau(Scanner scan) {
 		// TODO Auto-generated method stub
