@@ -10,10 +10,10 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		XeBus xeBus;
 		xeBus = new XeBus("59-N9-333.33", (byte)50);
-		xeBus.nhapThongTin(scan);
+//		xeBus.nhapThongTin(scan);
 //		System.out.println(xeBus.soDangKy);
 		
-		xeBus.inThongTin();
+//		xeBus.inThongTin();
 		
 		
 		
