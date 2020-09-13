@@ -20,20 +20,7 @@ public class MAIN {
 		themDummyData(congTy);
 		
 		congTy.xuatThongTin();
-//		congTy.sapXepLuongGiamDan();;
-//		scanner.nextLine();
-//		congTy.xuatThongTin();
-//		congTy.timGiamDocCoPhanNhieuNhat();
-//		congTy.timNhanVienLuongCaoNhat();
-//		congTy.tinhXuatThuNhapCuaTungGiamDoc();
-//		congTy.timTruongPhongQuanLyNhieuNhat();
-//		congTy.phanBoNhanVien(scanner);
-//		congTy.timTruongPhongQuanLyNhieuNhat();
-//		congTy.themNhanSu(scanner);
-//		congTy.xuatThongTin();
 		System.out.println();
-		
-		
 		
 		int luaChon;
 		/*

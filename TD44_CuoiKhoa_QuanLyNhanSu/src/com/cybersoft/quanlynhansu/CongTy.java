@@ -64,7 +64,6 @@ public class CongTy {
 				dsTruongPhong.add((TruongPhong) ns);
 			}
 		}
-		System.out.println("hello ádashdjh");
 		if(dsTruongPhong.size() == 0 || dsNhanVienChuaPhanBo.size() == 0) return;
 		System.out.println("PHAN BO NHAN VIEN: ");
 		
@@ -78,11 +77,13 @@ public class CongTy {
 				dsTruongPhong.get(i).xuatThongTin();
 			}
 			System.out.println("\t0. Khong phan bo");
-			int a = 1, b = 3;
+			
+			
 			
 			
 			System.out.print("Lua chon: ");
-			luaChon = a+(int)(Math.random()*((b-a)+1));
+			luaChon = phanBoTuDong(dsTruongPhong.size());
+//			luaChon = Integer.parseInt(scanner.nextLine());
 			System.out.println(luaChon);
 			TruongPhong tp;
 			
@@ -97,6 +98,12 @@ public class CongTy {
 			tp.tangNhanVien();
 			
 		}
+	}
+
+	private int phanBoTuDong(int size) {
+		int a = 1, b = size;
+		if(b < a) return 0;
+		return a+(int)(Math.random()*((b-a)+1));
 	}
 	
 	// Cau 3
