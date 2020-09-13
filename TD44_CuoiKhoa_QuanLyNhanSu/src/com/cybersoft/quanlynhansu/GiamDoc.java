@@ -60,10 +60,5 @@ public class GiamDoc extends NhanSu {
 		return String.valueOf(soCoPhan);
 	}
 
-	@Override
-	public double tinhPhuCap() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 }

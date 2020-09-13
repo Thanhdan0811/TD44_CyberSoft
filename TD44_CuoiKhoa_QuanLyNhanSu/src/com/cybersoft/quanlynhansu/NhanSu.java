@@ -105,9 +105,4 @@ public abstract class NhanSu {
 	}
 	
 	
-	/*
-	 * @description: ham dung tinh phu cap hang thang cho nhan su
-	 */
-	public abstract double tinhPhuCap();
-	
 }

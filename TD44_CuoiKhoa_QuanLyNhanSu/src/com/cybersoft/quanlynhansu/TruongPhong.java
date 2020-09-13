@@ -53,11 +53,6 @@ public class TruongPhong extends NhanSu {
 		return String.valueOf(soNhanVien);
 	}
 
-	@Override
-	public double tinhPhuCap() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 	public void tangNhanVien() {
 		this.soNhanVien++;

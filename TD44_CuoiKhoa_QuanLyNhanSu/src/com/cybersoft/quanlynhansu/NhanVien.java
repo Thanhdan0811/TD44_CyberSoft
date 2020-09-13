@@ -49,10 +49,6 @@ public class NhanVien extends NhanSu {
 		return "Nhân viên";
 	}
 
-	@Override
-	public double tinhPhuCap() {
-		return 0;
-	}
 
 	@Override
 	public String getThongTinThem() {
