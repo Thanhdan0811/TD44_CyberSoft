@@ -7,6 +7,7 @@ public abstract class NhanSu {
 	protected String maSo;
 	protected String hoTen;
 	protected String soDt;
+	private   int stt;
 	protected float soNgayLamViec;
 	protected float luongMotNgay;
 	
@@ -67,7 +68,8 @@ public abstract class NhanSu {
 	
 	public void xuatThongTin() {
 		System.out.println(
-				String.format("%10s |", maSo)
+				String.format(" %3s  |", this.stt)
+				+ String.format("%10s |", maSo)
 				+ String.format("%16s |", hoTen)
 				+ String.format("%16s |", soDt)
 				+ String.format("%12.2f |", soNgayLamViec)
@@ -77,7 +79,10 @@ public abstract class NhanSu {
 				+ String.format("%25s |", getThongTinThem())
 			);
 	}
-	
+	public int nhapSTT(int stt) {
+		this.stt = stt;
+		return this.stt;
+	}
 	public double tinhLuong() {
 		return soNgayLamViec * luongMotNgay;
 	}

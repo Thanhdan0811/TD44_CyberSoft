@@ -257,7 +257,8 @@ public class CongTy {
 		drawLine(num);
 		System.out.println();
 		System.out.println(
-				String.format(" %10s  ", "Mã số")
+				String.format(" %3s  ", "Stt")
+				+ String.format(" %10s  ", "Mã số")
 				+ String.format("%16s  ", "Họ tên")
 				+ String.format("%16s  ", "Số điện thoại")
 				+ String.format("%12s  ", "Ngày làm")
@@ -268,13 +269,16 @@ public class CongTy {
 			);
 		drawLine(num);
 		System.out.println();
-		for (NhanSu nhanSu : dsNhanSu) {
+		for(int i = 0; i < dsNhanSu.size(); i++) {
+			NhanSu nhanSu = dsNhanSu.get(i);
+			nhanSu.nhapSTT(i+1);
 			nhanSu.xuatThongTin();
 		}
 		drawLine(num);
 		System.out.println();
 		System.out.println(
-				String.format(" %10s  ", "")
+				String.format(" %3s  ", "")
+				+ String.format(" %10s  ", "")
 				+ String.format("%16s  ", "")
 				+ String.format("%16s  ", "")
 				+ String.format("%30s  ", "Tổng lương")

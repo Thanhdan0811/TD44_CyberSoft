@@ -23,13 +23,13 @@ public class TruongPhong extends NhanSu {
 	@Override 
 	public void nhapThongTin(Scanner scan) {
 		System.out.println("Nhập Thông tin Trưởng Phòng : ");
-		System.out.print("Tên");
+		System.out.print("Tên : ");
 		this.hoTen = scan.nextLine();
-		System.out.print("Số điện thoại");
+		System.out.print("Số điện thoại : ");
 		this.soDt = scan.nextLine();
 		System.out.print("Số ngày làm : ");
 		this.soNgayLamViec = Float.parseFloat(scan.nextLine());
-		System.out.print("lương 1 ngày");
+		System.out.print("lương 1 ngày : ");
 		this.luongMotNgay = Float.parseFloat(scan.nextLine());
 	}
 	@Override
