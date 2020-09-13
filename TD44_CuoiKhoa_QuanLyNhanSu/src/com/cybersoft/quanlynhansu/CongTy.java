@@ -18,25 +18,24 @@ public class CongTy {
 	public CongTy() {
 		tenCongTy = "";
 		maSoThue = "";
+		tenVietTat = "";
 		dsNhanSu = new ArrayList<NhanSu>();
 	}
 	
 	public CongTy(String tenCongTy, String maSoThue) {
+		this();
 		this.tenCongTy = tenCongTy;
 		this.maSoThue = maSoThue;
-		dsNhanSu = new ArrayList<NhanSu>();
 	}
 	
 	public CongTy(String tenCongTy, String tenVietTat, String maSoThue, double doanhThuThang) {
-		this.tenCongTy = tenCongTy;
+		this(tenCongTy,maSoThue);
 		this.tenVietTat = tenVietTat;
-		this.maSoThue = maSoThue;
 		this.doanhThuThang = doanhThuThang;
-		dsNhanSu = new ArrayList<NhanSu>();
 	}
-	/* get, set */
 	
-
+	/* Getters, Setters */
+	
 	/* methods */
 	// Cau 1
 	public void nhapThongTin(Scanner sc) {
@@ -48,7 +47,6 @@ public class CongTy {
 		maSoThue = sc.nextLine();
 		System.out.print("Doanh thu tháng hiện tại: ");
 		doanhThuThang = Double.parseDouble(sc.nextLine());
-		
 	}
 	
 	// Cau 2
@@ -56,7 +54,7 @@ public class CongTy {
 		ArrayList<NhanVien> dsNhanVienChuaPhanBo = new ArrayList<NhanVien>();
 		ArrayList<TruongPhong> dsTruongPhong = new ArrayList<TruongPhong>();
 		int luaChon;
-		
+		// Lấy ra danh sách trưởng phòng và nhân viên cần phân bổ
 		for(NhanSu ns : dsNhanSu) {
 			if(ns instanceof NhanVien && ((NhanVien) ns).getTruongPhong() == "") {
 				dsNhanVienChuaPhanBo.add((NhanVien)ns);
@@ -64,6 +62,7 @@ public class CongTy {
 				dsTruongPhong.add((TruongPhong) ns);
 			}
 		}
+		// Kiểm tra xem có nhân viên hay trưởng phòng hay không.
 		if(dsTruongPhong.size() == 0 || dsNhanVienChuaPhanBo.size() == 0) return;
 		System.out.println("PHAN BO NHAN VIEN: ");
 		
@@ -77,26 +76,19 @@ public class CongTy {
 				dsTruongPhong.get(i).xuatThongTin();
 			}
 			System.out.println("\t0. Khong phan bo");
-			
-			
-			
-			
 			System.out.print("Lua chon: ");
 			luaChon = phanBoTuDong(dsTruongPhong.size());
 //			luaChon = Integer.parseInt(scanner.nextLine());
 			System.out.println(luaChon);
 			TruongPhong tp;
-			
 			//de-coupling code <> couple
 			// micro optimize
 			if(luaChon <= 0) {
 				continue;
 			}
-			
 			tp = dsTruongPhong.get(luaChon - 1);
 			nv.setTruongPhong(tp.getMaSo());
 			tp.tangNhanVien();
-			
 		}
 	}
 
@@ -108,10 +100,6 @@ public class CongTy {
 	
 	// Cau 3
 	public boolean themNhanSu(Scanner scan) {
-		// 1. kiểm tra null
-		// 2. kiểm tra tên rỗng
-		// 3. kiểm tra trùng lặp
-		// 4. thêm 
 		int luaChon;
 		System.out.println("Nhân sự bạn muốn thêm là : \n\t1. Nhân Viên \n\t2.Trưởng Phòng \n\t3 Giám Đốc ");
 		System.out.print("Lựa chọn : ");
@@ -134,6 +122,10 @@ public class CongTy {
 				System.out.println("Lựa chọn không hợp lệ");
 				break;
 		}
+		// 1. kiểm tra null
+		// 2. kiểm tra tên rỗng
+		// 3. kiểm tra trùng lặp
+		// 4. thêm 
 		if(ns == null)
 			return false;
 		
@@ -197,7 +189,7 @@ public class CongTy {
 		String maSo;
 		System.out.print("Nhập vào mã số nhân sự cần xóa : ");
 		maSo = scan.nextLine();
-		
+		// Nếu mã số là null
 		if(maSo == null)
 			return false;
 		
@@ -205,36 +197,42 @@ public class CongTy {
 			if(!maSo.equalsIgnoreCase(nhanSu.getMaSo())) continue;
 			nsCanXoa = nhanSu;
 		}
+		// Nếu không mã nếu không trùng với bất cứ nhân sự nào.
 		if(nsCanXoa == null) return false;
-		
+		// Nếu là class NhanVien thì giảm số nhân viên của trưởng phòng
 		if(nsCanXoa instanceof NhanVien) {
 			// Lấy mã trưởng phòng của nhân viên
 			String maTruongPhongCuaNhanVien = ((NhanVien) nsCanXoa).getTruongPhong();
 			System.out.println("mã trưởng phòng của nhân viên : " + maTruongPhongCuaNhanVien);
-			// Kiểm tra xem có phân vào trưởng phòng nào chưa
 			// Nếu đã phân vào trưởng phòng, giảm số nhân viên xuống.
 			for(int i = 0; i < dsNhanSu.size(); i++) {
 				NhanSu nhanSu = dsNhanSu.get(i);
+				// Kiểm tra xem có phân vào trưởng phòng nào chưa
 				if("".equals(maTruongPhongCuaNhanVien)) break;
+				// Kiểm tra nhanSu có thuộc class Truong Phong
 				if(!(nhanSu instanceof TruongPhong)) continue;
 				String maSoNhanSu = nhanSu.getMaSo();
 				if(maTruongPhongCuaNhanVien.equalsIgnoreCase(maSoNhanSu))
 					((TruongPhong) nhanSu).giamNhanVien();
 			}
 		}
+		// Nếu là class TruongPhong thì reset lại NhanVien được phân bổ vào trưởng phòng này
 		if(nsCanXoa instanceof TruongPhong) {
 			int soNhanVien = ((TruongPhong) nsCanXoa).getSoNhanVien();
 			String maSoTruongPhong  = ((TruongPhong) nsCanXoa).getMaSo();
 			
 			for(int i = 0; i < dsNhanSu.size(); i++) {
-				NhanSu nhanSu = dsNhanSu.get(i);
+				// Kiểm tra Trưởng phòng có số nhân viên nào không
 				if(soNhanVien == 0) break;
+				NhanSu nhanSu = dsNhanSu.get(i);
+				// Kiểm tra nhanSu có thuộc class NhanVien
 				if(!(nhanSu instanceof NhanVien)) continue;
 				String maTruongPhongCuaNhanVien  = ((NhanVien) nhanSu).getTruongPhong();
 				if(maSoTruongPhong.equalsIgnoreCase(maTruongPhongCuaNhanVien))
 					((NhanVien) nhanSu).setTruongPhong("");
 			}
 		}
+		// Xóa nhân sự
 		dsNhanSu.remove(nsCanXoa);
 		return true;
 	}
@@ -417,6 +415,4 @@ public class CongTy {
 			System.out.println("\nGiám đốc " + dsNhanSu.get(i).getHoTen() + " có thu nhập là : " + String.format("%20.2f", thuNhap));
 		}
 	}
-	
-	
 }

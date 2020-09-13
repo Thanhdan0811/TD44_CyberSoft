@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class GiamDoc extends NhanSu {
 	/* properties */
 	private float soCoPhan;
+	
 	// Constructor
 	public GiamDoc() {
 		super();
@@ -15,6 +16,7 @@ public class GiamDoc extends NhanSu {
 		super(maSo, hoTen, soDt, soNgayLamViec, luongMotNgay);
 		setSoCoPhan(soCoPhan);
 	}
+	
 	// Getters / Setters
 	public float getSoCoPhan() {
 		return this.soCoPhan;
@@ -24,6 +26,7 @@ public class GiamDoc extends NhanSu {
 		if(0 < soCoPhan && soCoPhan < 100)
 			this.soCoPhan = soCoPhan;
 	}
+	
 	// Methods
 	@Override 
 	public void nhapThongTin(Scanner scan) {
@@ -59,6 +62,4 @@ public class GiamDoc extends NhanSu {
 	public String getThongTinThem() {
 		return String.valueOf(soCoPhan);
 	}
-
-	
 }

@@ -38,12 +38,7 @@ public class NhanVien extends NhanSu {
 		System.out.print("lương 1 ngày : ");
 		this.luongMotNgay = Float.parseFloat(scan.nextLine());
 	}
-	
-	@Override
-	public void callMe() {
-		System.out.println("Call me by NhanVien class.");
-	}
-	
+
 	@Override
 	public String getChucVu() {
 		return "Nhân viên";

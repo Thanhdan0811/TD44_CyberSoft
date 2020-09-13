@@ -7,9 +7,9 @@ public abstract class NhanSu {
 	protected String maSo;
 	protected String hoTen;
 	protected String soDt;
-	private   int stt;
 	protected float soNgayLamViec;
 	protected float luongMotNgay;
+	private   int stt;
 	
 	/* constructor */
 	public NhanSu() {
@@ -17,6 +17,7 @@ public abstract class NhanSu {
 		this.hoTen = "";
 		this.soDt = "";
 	}
+	
 	public NhanSu(String maSo, String hoTen, String soDt, float soNgayLamViec, float luongMotNgay) {
 		this.maSo = maSo;
 		this.hoTen = hoTen;
@@ -24,6 +25,7 @@ public abstract class NhanSu {
 		this.soNgayLamViec = soNgayLamViec;
 		this.luongMotNgay = luongMotNgay;
 	}
+	
 	/* getters, setters */
 	public String getSoDt() {
 		return this.soDt;
@@ -79,10 +81,12 @@ public abstract class NhanSu {
 				+ String.format("%25s |", getThongTinThem())
 			);
 	}
+	
 	public int nhapSTT(int stt) {
 		this.stt = stt;
 		return this.stt;
 	}
+	
 	public double tinhLuong() {
 		return soNgayLamViec * luongMotNgay;
 	}
@@ -92,10 +96,6 @@ public abstract class NhanSu {
 		return this.maSo;
 	}
 	
-	public void callMe() {
-		System.out.println("Call me by NhanSu Class.");
-	}
-	
 	public String getChucVu() {
 		return "Nhân sự";
 	}
@@ -103,6 +103,4 @@ public abstract class NhanSu {
 	public String getThongTinThem() {
 		return "";
 	}
-	
-	
 }

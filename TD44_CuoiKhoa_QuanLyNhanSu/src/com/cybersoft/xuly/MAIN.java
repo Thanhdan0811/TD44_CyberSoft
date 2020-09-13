@@ -10,11 +10,6 @@ import com.cybersoft.quanlynhansu.NhanVien;
 import com.cybersoft.quanlynhansu.TruongPhong;
 public class MAIN {
 	public static void main(String[] args) {
-		
-		String bienNull = null;
-		
-		System.out.println("".equals(bienNull));
-		
 		Scanner scanner = new Scanner(System.in);
 		CongTy congTy = new CongTy("Cyber Group", "CG", "0286236876", 1000000000);
 		themDummyData(congTy);
