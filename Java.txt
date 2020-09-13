@@ -7,3 +7,67 @@ Buổi 4 : String.format("%12s", ""); s là chuỗi , f là kiểu float
 		+ Clean Code : ngay hàng thẳng lỗi; cách đặt tên biến, hàm, lớp....; hàm nên có từ 3 tham số trở xuống. Tách hàm là tách chức năng.
 		+ Code Flow  : Luồng chạy hay thứ tự của code;
 		+ abstract level :  
+Buổi 8 : Nested class - helper : ví dụ private class Name {}
+		+ private chỉ dùng trong claas
+		+ protected : Cùng 1 package, cùng 1 kế thừa, class test ở phần test.
+
+		- Khởi tạo các giá trị cho các thuộc tính để tránh NullPointerException.
+		- Nếu không tốn quá nhiều tài nguyên thì không cần lưu thêm thuộc tính
+	
+		* Array list : Truy xuất nhanh nhưng xóa/thêm lại chậm 
+		* Với ứng dụng cần thêm/xóa ta sẽ dùng linked list :  1->2->3->4 ; Khi xóa phần tử 2 : => 1->3->4 = truy xuất chậm nhưng thêm/xóa nhanh hơn
+		
+		* Kiểm tra các biến hay thuộc tính chỉ nên dùng if kiểm tra và return ngay nếu đúng.
+
+		* Static : 
+			+ Khi cấp bộ nhớ sẽ chia ra 2 vùng bộ nhớ : 
+				+ Stack : Thông tin môi trường, Khi tạo các biến như primitive sẽ tạo ở Stack
+				+ HEAP  : Khi tạo biến 1 kiểu tham chiếu tên(lưu địa chỉ vùng nhớ ở HEAP) sẽ ở Stack và có tham chiếu đến vùng nhớ HEAP.
+- Buổi 9 :
+- Visual Paradigm
+	OOP : có 4 tính chất : 
+		+ Tính đóng gói : Dạng như không cần truyền tham số cho các method. Các properties nằm cùng 1 nơi nên sẽ dễ dàng mở rộng. Bảo mật dữ liệu thông qua
+			          Access Modifier. 
+		+ Tính kế thừa (Inheritance) : 
+		+ Tính : đa hình
+		+ Tính : trừu tượng là những lớp ko thể tạo instance, Chỉ quan tâm class có gì, việc viết hay chạy ntn sẽ là do các subclass.
+			+ Khi các class kế thừ từ abstract sẽ các class kế thừa này giống như 1 instance của abstract, chuẩn hóa tên hàm.
+			+ 
+- Buổi 10 : Override
+	@Override
+	public void callMe(){
+	     super.callMe(); // Nếu ko viết gì sẽ mặc định gọi từ cha
+
+	}
+	+ Cùng 1 phương thức ở mỗi con khác nhau sẽ có thể khác nhua bằng override
+
+- Buổi 11 : 
+* Buổi cuối : 
+- Tìm kiếm tuyến tính : Duyệt qua từng item
+- solid java
+- gof
+- kiss
+- Nghịch thế.
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+(***)Study Case 1: 
+
+Đề bài:
+
+Tính số lượng sơn cần thiết cho căn phòng:
+
+Viết lệnh để tính số sơn cần để sơn lại một căn phòng. Người dùng nhập vào chiều dài, chiều rộng, chiều cao, số cánh cửa, số cửa sổ và lượng sơn cần để bao phủ (m2/lít).
+
+Yêu cầu:
+- Tính số sơn cần thiết để sơn tường.
+- Tính số sơn cần thiết để sơn trần nhà.
