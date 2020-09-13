@@ -34,13 +34,13 @@ public class GiamDoc extends NhanSu {
 		System.out.print("Tên : ");
 		this.hoTen = scan.nextLine();
 		System.out.print("Số điện thoại : ");
-		this.soDt = scan.nextLine();
+		this.setSoDt(scan.nextLine());
 		System.out.print("Số ngày làm : ");
-		this.soNgayLamViec = Float.parseFloat(scan.nextLine());
+		this.setSoNgayLamViec(Float.parseFloat(scan.nextLine()));
 		System.out.print("lương 1 ngày : ");
 		this.luongMotNgay = Float.parseFloat(scan.nextLine());
 		System.out.print("số cổ phần : ");
-		this.soCoPhan = Float.parseFloat(scan.nextLine());
+		this.setLuongMotNgay(Float.parseFloat(scan.nextLine()));
 	}
 	
 	@Override

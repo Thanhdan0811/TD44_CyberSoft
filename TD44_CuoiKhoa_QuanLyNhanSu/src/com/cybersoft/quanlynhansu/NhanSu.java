@@ -21,46 +21,65 @@ public abstract class NhanSu {
 	public NhanSu(String maSo, String hoTen, String soDt, float soNgayLamViec, float luongMotNgay) {
 		this.maSo = maSo;
 		this.hoTen = hoTen;
-		this.soDt = soDt;
-		this.soNgayLamViec = soNgayLamViec;
-		this.luongMotNgay = luongMotNgay;
+		this.setSoDt(soDt);
+		this.setSoNgayLamViec(soNgayLamViec);
+		this.setLuongMotNgay(luongMotNgay);
 	}
 	
-	/* getters, setters */
+	/* Getters, Setters */
+	// Số dt
 	public String getSoDt() {
 		return this.soDt;
+	}
+	
+	public void setSoDt(String soDt) {
+		// Mã ascii : từ số 0 => 9 là 48 => 57
+		// Kiểm tra số đầu tiên là 0
+		if(soDt.codePointAt(0) != 48) return;
+		// Không được có chữ
+		for(int i = 1; i < soDt.length();i++) { 
+			if(!(soDt.codePointAt(i) >= 48 && soDt.codePointAt(i) <= 57))
+				return;
+		}
+		this.soDt = soDt;
+	}
+	
+	// Mã số
+	public String getMaSo() {
+		return this.maSo;
 	}
 	
 	public void setMaSo(String maSo) {
 		this.maSo = maSo;
 	}
 	
+	// Họ Tên
 	public String getHoTen() {
 		return this.hoTen;
 	}
 	
+	public void setHoTen(String hoTen) {
+		this.hoTen = hoTen;
+	}
+	
+	// Số Ngày làm việc
 	public float getSoNgayLamViec() {
 		return soNgayLamViec;
 	}
 
 	public void setSoNgayLamViec(float soNgayLamViec) {
+		if(!(soNgayLamViec >= 0)) return;
 		this.soNgayLamViec = soNgayLamViec;
 	}
 
+	// Lương 1 ngày
 	public float getLuongMotNgay() {
 		return luongMotNgay;
 	}
 
 	public void setLuongMotNgay(float luongMotNgay) {
+		if(!(luongMotNgay >= 0)) return;
 		this.luongMotNgay = luongMotNgay;
-	}
-
-	public void setHoTen(String hoTen) {
-		this.hoTen = hoTen;
-	}
-
-	public void setSoDt(String soDt) {
-		this.soDt = soDt;
 	}
 
 	/* methods */
@@ -82,18 +101,12 @@ public abstract class NhanSu {
 			);
 	}
 	
-	public int nhapSTT(int stt) {
+	public void nhapSTT(int stt) {
 		this.stt = stt;
-		return this.stt;
 	}
 	
 	public double tinhLuong() {
 		return soNgayLamViec * luongMotNgay;
-	}
-
-	public String getMaSo() {
-		// TODO Auto-generated method stub
-		return this.maSo;
 	}
 	
 	public String getChucVu() {

@@ -46,7 +46,7 @@ public class MAIN {
 					System.out.println("Tổng lương: " + congTy.tinhTongLuong());
 					break;
 				case 7:
-					congTy.timNhanVienLuongCaoNhat();
+					congTy.timNhanVienThuongLuongCaoNhat();
 					break;
 				case 8:
 					congTy.timTruongPhongQuanLyNhieuNhat();
@@ -63,7 +63,7 @@ public class MAIN {
 					congTy.timGiamDocCoPhanNhieuNhat();
 					break;
 				case 12:
-					congTy.tinhXuatThuNhapCuaTungGiamDoc();
+					congTy.xuatThuNhapCuaTungGiamDoc();
 					break;
 				case 0:
 					System.out.println("Kết thúc chương trình.");
@@ -107,7 +107,7 @@ public class MAIN {
 		cty.themNhanSuTuDong(new NhanVien("", "Khánh", "0369766613", 22, 100));
 		cty.themNhanSuTuDong(new NhanVien("", "Phong", "0369216613", 22, 100));
 		cty.themNhanSuTuDong(new NhanVien("", "Thanh", "0369896613", 22, 100));
-		cty.themNhanSuTuDong(new NhanVien("", "Chí", "0369200613", 22, 100));
+		cty.themNhanSuTuDong(new NhanVien("", "Chí", "0369200613", 26, 100));
 		cty.themNhanSuTuDong(new NhanVien("", "Tuấn", "0369226613", 22, 100));
 		cty.themNhanSuTuDong(new NhanVien("", "Trí", "0369296513", 22, 100));
 		

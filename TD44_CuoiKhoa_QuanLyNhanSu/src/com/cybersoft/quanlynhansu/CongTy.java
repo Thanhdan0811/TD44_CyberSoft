@@ -155,13 +155,13 @@ public class CongTy {
 		return true;
 	}
 	
-	public String generateId() {
+	private String generateId() {
 		return tenVietTat 
 				+ OffsetDateTime.now().getYear()
 				+ getStt(4);
 	}
 	
-	public String getStt(int length) {
+	private String getStt(int length) {
 		String result = "";
 		int i = 1;
 		
@@ -175,7 +175,7 @@ public class CongTy {
 		return result;
 	}
 	
-	public boolean daTonTaiNhanSu(NhanSu ns) {
+	private boolean daTonTaiNhanSu(NhanSu ns) {
 		for (NhanSu nhanSu : dsNhanSu) {
 			if(nhanSu.getSoDt().equalsIgnoreCase(ns.getSoDt()))
 				return true;
@@ -304,26 +304,27 @@ public class CongTy {
 	}
 	
 	// Cau 7
-	public void timNhanVienLuongCaoNhat() {
+	public void timNhanVienThuongLuongCaoNhat() {
 		double maxLuong = 0;
 		int soNhanVienThuongTrongCongTy = 0;
-		ArrayList<NhanSu> dsNhanVienThuong = new ArrayList<NhanSu>();
+		// Tìm mức lương cao nhất
 		for(int i = 0; i < dsNhanSu.size(); i++) {
 			if(!(dsNhanSu.get(i) instanceof NhanVien)) continue;
 			soNhanVienThuongTrongCongTy++;
 			if(maxLuong < ((NhanVien)dsNhanSu.get(i)).tinhLuong())
 				maxLuong = ((NhanVien)dsNhanSu.get(i)).tinhLuong(); 
 		}
+		// Kiểm tra xem cty có nhân viên thường hay không
 		if(soNhanVienThuongTrongCongTy == 0) return;
+		// Xuất ra tên nhân viên có lương cao nhất
+		System.out.println("\nNhân viên thường có lương cao nhất : ");
 		for(int i = 0; i < dsNhanSu.size(); i++) {
 			if(!(dsNhanSu.get(i) instanceof NhanVien)) continue;
 			if(maxLuong == ((NhanVien)dsNhanSu.get(i)).tinhLuong())
-				dsNhanVienThuong.add(dsNhanSu.get(i));
+				System.out.println("Tên : " + dsNhanSu.get(i).getHoTen() + 
+									"\nMã số : " + dsNhanSu.get(i).getMaSo());
 		}
-		for(int i = 0; i < dsNhanVienThuong.size(); i++) {
-				System.out.println("\nNhân viên có lương cao nhất : ");
-				dsNhanVienThuong.get(i).xuatThongTin();
-		}
+		System.out.println("Với mức lương là : " + maxLuong);
 	}
 	
 	// Cau 8
@@ -331,29 +332,36 @@ public class CongTy {
 		ArrayList<TruongPhong> dsTruongPhong = new ArrayList<TruongPhong>();
 		int soNhanVienMax = 0;
 		int maxLength = dsNhanSu.size();
+		// Lọc ra danh sách các trưởng phòng
 		for(int i = 0; i < maxLength; i++) {
 			if(!(dsNhanSu.get(i) instanceof TruongPhong)) continue;
 				dsTruongPhong.add(((TruongPhong)dsNhanSu.get(i)));
 		}
+		// Kiểm tra xem có trường phòng hay không
 		if(dsTruongPhong.size() == 0) return;
+		// Tìm số nhân viên lớn nhất
 		for(int i = 0; i < dsTruongPhong.size(); i++) {
 			if(soNhanVienMax < dsTruongPhong.get(i).getSoNhanVien())
 				soNhanVienMax = dsTruongPhong.get(i).getSoNhanVien();
 		}
+		// Kiểm tra xem đã có phân bổ hay chưa
 		if(soNhanVienMax == 0) {
 			System.out.println("\nCác Trưởng phòng chưa có nhân viên");
 			return;
 		}
+		// Xuất ra trưởng phòng có nhiều nhân viên nhất.
 		System.out.println("\nTrưởng phòng quản lý nhiều nhân viên nhất : ");
 		for(int i = 0; i < dsTruongPhong.size(); i++) {
 			if(soNhanVienMax == dsTruongPhong.get(i).getSoNhanVien())
-				dsTruongPhong.get(i).xuatThongTin();;
+				System.out.println("Họ tên : " + dsTruongPhong.get(i).getHoTen() + 
+						"\nMã số : " + dsTruongPhong.get(i).getMaSo());
 		}
 		System.out.println(" với số nhân viên là : " + soNhanVienMax);
 	}
 	
 	// Cau 9
 	public void sapXepTheoABC() {
+		// Dùng bubble sort
 		for(int i = 0; i < dsNhanSu.size(); i++) {
 			for(int j = 0; j < dsNhanSu.size()  - i - 1; j++) {
 				int soSanh = dsNhanSu.get(j).getHoTen().compareToIgnoreCase(dsNhanSu.get(j+1).getHoTen());
@@ -369,6 +377,7 @@ public class CongTy {
 	
 	// Cau 10
 	public void sapXepLuongGiamDan() {
+		// Dùng bubble sort
 		for(int i = 0; i < dsNhanSu.size(); i++) {
 			for(int j = 0; j < dsNhanSu.size()  - i - 1; j++) {
 				double soSanh = dsNhanSu.get(j).tinhLuong() - dsNhanSu.get(j + 1).tinhLuong();
@@ -386,27 +395,28 @@ public class CongTy {
 	public void timGiamDocCoPhanNhieuNhat() {
 		float maxSoCoPhan = 0;
 		int soGiamDocTrongCongTy = 0;
-		ArrayList<NhanSu> dsGiamDocCoPhanMax = new ArrayList<NhanSu>();
+		// Tìm số cổ phần MAX
 		for(int i = 0; i < dsNhanSu.size(); i++) {
 			if(!(dsNhanSu.get(i) instanceof GiamDoc)) continue;
 			soGiamDocTrongCongTy++;
 			if(maxSoCoPhan < ((GiamDoc)dsNhanSu.get(i)).getSoCoPhan())
 				maxSoCoPhan = ((GiamDoc)dsNhanSu.get(i)).getSoCoPhan(); 
 		}
+		// Kiểm tra xem đã có tạo Giám Đốc chưa
 		if(soGiamDocTrongCongTy == 0) return;
+		// Xuất ra giám đốc có cổ phần MAX 
+		System.out.println("\nGiám đốc có số cổ phần cao nhất : ");
 		for(int i = 0; i < dsNhanSu.size(); i++) {
 			if(!(dsNhanSu.get(i) instanceof GiamDoc)) continue;
 			if(maxSoCoPhan == ((GiamDoc)dsNhanSu.get(i)).getSoCoPhan())
-				dsGiamDocCoPhanMax.add(dsNhanSu.get(i));
+				System.out.println("Họ Tên : "+ dsNhanSu.get(i).getHoTen() + 
+						"\nMã số : " + dsNhanSu.get(i).getMaSo());
 		}
-		for(int i = 0; i < dsGiamDocCoPhanMax.size(); i++) {
-				System.out.println("\nGiám đốc có số cổ phần cao nhất : ");
-				dsGiamDocCoPhanMax.get(i).xuatThongTin();
-		}
+		System.out.println("Với số cổ phần là : " + maxSoCoPhan);
 	}
 	
 	// Cau 12
-	public void tinhXuatThuNhapCuaTungGiamDoc() {
+	public void xuatThuNhapCuaTungGiamDoc() {
 		double loiNhuanCongTy = this.doanhThuThang - tinhTongLuong();
 		double thuNhap = 0;
 		for(int i = 0; i < dsNhanSu.size(); i++) {

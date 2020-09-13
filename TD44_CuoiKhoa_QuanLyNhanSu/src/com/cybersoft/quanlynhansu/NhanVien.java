@@ -5,12 +5,14 @@ import java.util.Scanner;
 public class NhanVien extends NhanSu {
 	/* properties */
 	private String truongPhong;
+	
 	// Constructor
 	public NhanVien() {
 		super();
 		this.truongPhong = "";
 		this.luongMotNgay = 100;
 	}
+	
 	public NhanVien(String maSo, String hoTen, String soDt, float soNgayLam, float luongMotNgay) {
 		super(maSo, hoTen, soDt, soNgayLam, luongMotNgay);
 		this.truongPhong = "";
@@ -22,6 +24,7 @@ public class NhanVien extends NhanSu {
 	}
 	
 	public void setTruongPhong(String truongPhong) {
+		if(truongPhong == null) return;
 		this.truongPhong = truongPhong;
 	}
 	
@@ -32,11 +35,11 @@ public class NhanVien extends NhanSu {
 		System.out.print("Tên : ");
 		this.hoTen = scan.nextLine();
 		System.out.print("Số điện thoại : ");
-		this.soDt = scan.nextLine();
+		this.setSoDt(scan.nextLine());
 		System.out.print("Số ngày làm : ");
-		this.soNgayLamViec = Float.parseFloat(scan.nextLine());
+		this.setSoNgayLamViec(Float.parseFloat(scan.nextLine()));
 		System.out.print("lương 1 ngày : ");
-		this.luongMotNgay = Float.parseFloat(scan.nextLine());
+		this.setLuongMotNgay(Float.parseFloat(scan.nextLine()));
 	}
 
 	@Override
@@ -44,11 +47,8 @@ public class NhanVien extends NhanSu {
 		return "Nhân viên";
 	}
 
-
 	@Override
 	public String getThongTinThem() {
 		return this.truongPhong;
 	}
-
-	
 }
